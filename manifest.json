@@ -1,0 +1,38 @@
+{
+  "vendor": "miligrama",
+  "name": "rebuy",
+  "version": "0.0.0",
+  "title": "Aplicativo de Recompra",
+  "description": "Aplicativo de Recompra",
+  "builders": {
+    "scripts": "0.x",
+    "node": "6.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "dependencies": {},
+  "registries": [
+    "smartcheckout"
+  ],
+  "policies": [
+    {
+      "name": "update-app-settings"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/oms/user/orders"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "/api/io",
+        "path": "*"
+      }
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
